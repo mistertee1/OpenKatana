@@ -137,6 +137,9 @@ def create_app(settings):
     async def login(request):
         return FileResponse(WEB / 'hosted-login.html')
 
+    async def auto_editor(request):
+        return FileResponse(WEB / 'auto-editor.html')
+
     async def session(request):
         body = await json_body(request)
         key = body.get('access_key', '')
@@ -279,7 +282,7 @@ def create_app(settings):
               Route('/auth/session', session, methods=['POST']), Route('/auth/logout', logout, methods=['POST']),
               Route('/auth/api-key', key, methods=['POST', 'DELETE']),
               Route('/.well-known/oauth-protected-resource/mcp', metadata),
-              Route('/', home), Route('/app/{path:path}', static),
+              Route('/', home), Route('/auto', auto_editor), Route('/app/{path:path}', static),
               Route('/files/{path:path}', file), Route('/project/{path:path}', file),
               Route('/api/upload', upload, methods=['POST']),
               Route('/api/{route:path}', api, methods=['GET', 'POST']), Mount('/', mcp_app)]
