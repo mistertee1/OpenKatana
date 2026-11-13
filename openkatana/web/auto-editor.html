@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131b"><title>المونتاج الذكي | OpenKatana</title>
+<link rel="stylesheet" href="/app/auto-editor.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/"><span class="mark">K</span> مونتاج ذكي</a><div class="top-actions"><span id="connection" class="connection">جاري الاتصال...</span><a href="/" class="advanced-link">الاستوديو المتقدم ↗</a></div></header>
+<main class="wrap">
+<section class="hero"><p class="eyebrow">OPENKATANA · AI VIDEO EDITOR</p><h1>ارفع ملفاتك، وابدأ المونتاج</h1><p>أضف التعليق الصوتي والنص ومقاطعك الخام. سننشئ مشروع مونتاج أولياً داخل محرك OpenKatana لتراجعه وتطوره.</p></section>
+<div class="layout">
+<div class="form">
+<section class="panel"><div class="heading"><span>١</span><div><h2>الصوت</h2><p>التعليق الصوتي أو الموسيقى</p></div></div><label class="drop" for="audio"><b>♫</b><strong>اختَر الملف الصوتي</strong><small>MP3 · WAV · M4A · AAC</small><input id="audio" type="file" accept="audio/*"></label><p id="audio-name" class="file-hint">لم يتم اختيار صوت</p><audio id="audio-preview" controls hidden></audio></section>
+<section class="panel"><div class="heading"><span>٢</span><div><h2>النص أو السكريبت</h2><p>النص الذي تريد أن يبني عليه المونتاج</p></div></div><textarea id="script" rows="6" placeholder="الصق هنا نص التعليق الصوتي أو السكريبت..."></textarea><div class="meta"><span>يُحفظ النص ضمن موجز المشروع</span><span id="count">٠ حرف</span></div></section>
+<section class="panel"><div class="heading"><span>٣</span><div><h2>الفيديوهات الخام</h2><p>ارفع المقاطع التي تريد استخدامها</p></div></div><label class="drop" for="videos"><b>＋</b><strong>اختَر فيديو واحداً أو أكثر</strong><small>MP4 · MOV · WEBM · MKV</small><input id="videos" type="file" accept="video/*" multiple></label><div id="video-list" class="file-list"><p class="file-hint">لم تتم إضافة فيديوهات</p></div></section>
+<section class="panel"><div class="heading"><span>٤</span><div><h2>فيديو مرجعي <i>اختياري</i></h2><p>لتحليل أسلوب المونتاج والإيقاع والانتقالات</p></div></div><label class="reference" for="reference"><span>＋</span><span><b>إضافة فيديو مرجعي</b><small>اختياري</small></span><input id="reference" type="file" accept="video/*"></label><p id="reference-name" class="file-hint">لم تتم إضافة مرجع</p></section>
+<section class="panel"><div class="heading"><span>٥</span><div><h2>إعدادات الفيديو</h2><p>اختَر المقاس وأسلوب القص الأولي</p></div></div><div class="settings"><label>مقاس الفيديو<select id="format"><option value="720,1280">عمودي 9:16 — ريلز وتيك توك</option><option value="1280,720">أفقي 16:9 — يوتيوب</option><option value="1080,1080">مربع 1:1</option></select></label><label>إيقاع المونتاج<select id="recipe"><option value="Drift">ناعم وسينمائي</option><option value="Punch">سريع وحيوي</option><option value="Switchback">إعلاني</option></select></label></div></section>
+<button id="start" class="primary">ابدأ تجهيز المونتاج <span>←</span></button><p class="notice">المحرك ينشئ حالياً قصّة أولية من ترتيب المقاطع ويضيف الصوت. تحليل المرجع متاح، أما المطابقة الدلالية التلقائية لكل جملة مع لقطة محددة وإنتاج ترجمة متزامنة فهما مرحلتان إضافيتان قيد التطوير.</p>
+</div>
+<aside class="side">
+<section class="panel summary"><h3>ملخص مشروعك</h3><div><span>الصوت</span><b id="s-audio">غير مضاف</b></div><div><span>النص</span><b id="s-script">غير مضاف</b></div><div><span>المقاطع</span><b id="s-videos">٠</b></div><div><span>المرجع</span><b id="s-reference">اختياري</b></div><div><span>الخادم</span><b id="s-server">غير متصل</b></div></section>
+<section class="panel progress"><h3>خطوات التنفيذ</h3><ol id="steps"><li>إنشاء مشروع خاص بك</li><li>رفع واستيراد الملفات</li><li>تحليل المرجع إن وجد</li><li>تجهيز القصّة وإضافة الصوت</li><li>حفظ المونتاج وبدء الرندر</li></ol></section>
+<section id="result" class="panel result" hidden><h3>نتيجة المهمة</h3><p id="result-text"></p><a id="studio-link" href="/">افتح الاستوديو لمراجعة الفيديو ←</a></section>
+</aside>
+</div>
+</main>
+<div id="toast" role="status" class="toast"></div>
+<script src="/app/auto-editor.js"></script>
+</body></html>
