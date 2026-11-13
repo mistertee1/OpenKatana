@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <title>مونتاج ذكي | OpenKatana</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="OpenKatana"><span class="brand-mark">K</span><span>مونتاج ذكي</span></a>
+    <span class="prototype-tag">نسخة تجريبية للواجهة</span>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">OPENKATANA · AI VIDEO WORKFLOW</p>
+      <h1>من ملفاتك إلى فيديو جاهز</h1>
+      <p class="lead">ارفع الصوت، أضف النص، واختَر فيديوهاتك الخام. جهّز مشروعك للمونتاج في مكان واحد.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="form-column">
+        <section class="panel">
+          <div class="step-heading"><span class="step-number">١</span><div><h2>الصوت</h2><p>التعليق الصوتي أو الأغنية</p></div></div>
+          <label class="upload-zone" for="audio-file">
+            <span class="upload-icon">♫</span>
+            <strong>اضغط لاختيار الملف الصوتي</strong>
+            <small>MP3 · WAV · M4A · AAC</small>
+            <input id="audio-file" type="file" accept="audio/*">
+          </label>
+          <div id="audio-info" class="file-info" aria-live="polite">لم يتم اختيار ملف صوتي</div>
+          <audio id="audio-player" controls hidden></audio>
+        </section>
+
+        <section class="panel">
+          <div class="step-heading"><span class="step-number">٢</span><div><h2>النص أو السكريبت</h2><p>اكتب الكلام المرتبط بالصوت</p></div></div>
+          <textarea id="script-text" rows="5" placeholder="الصق هنا نص التعليق الصوتي أو السكريبت..."></textarea>
+          <div class="field-footer"><span>يساعد النص على تقسيم الفيديو إلى مشاهد</span><span id="char-count">٠ حرف</span></div>
+        </section>
+
+        <section class="panel">
+          <div class="step-heading"><span class="step-number">٣</span><div><h2>الفيديوهات الخام</h2><p>ارفع المقاطع التي تريد استخدامها</p></div></div>
+          <label class="upload-zone compact" for="raw-files">
+            <span class="upload-icon">＋</span>
+            <strong>اختَر فيديو واحداً أو أكثر</strong>
+            <small>MP4 · MOV · WEBM</small>
+            <input id="raw-files" type="file" accept="video/*" multiple>
+          </label>
+          <div id="raw-list" class="file-list" aria-live="polite"><span class="empty-state">لم تتم إضافة فيديوهات بعد</span></div>
+        </section>
+
+        <section class="panel optional-panel">
+          <div class="step-heading"><span class="step-number">٤</span><div><h2>فيديو مرجعي <em>اختياري</em></h2><p>لتحليل أسلوب المونتاج الذي تريد تقليده</p></div></div>
+          <label class="reference-pick" for="reference-file"><span>＋</span><span><strong>إضافة فيديو مرجعي</strong><small>اختياري — لتحليل الإيقاع والقصّات والحركة</small></span><input id="reference-file" type="file" accept="video/*"></label>
+          <div id="reference-info" class="file-info">لم تتم إضافة مرجع</div>
+        </section>
+
+        <section class="panel settings-panel">
+          <h2>إعدادات الفيديو</h2>
+          <div class="settings-grid">
+            <label>مقاس الفيديو<select id="aspect"><option value="9:16">عمودي 9:16 — ريلز / تيك توك</option><option value="16:9">أفقي 16:9 — يوتيوب</option><option value="1:1">مربع 1:1</option></select></label>
+            <label>أسلوب المونتاج<select id="style"><option>اختيار تلقائي حسب الصوت والمحتوى</option><option>سريع وحيوي</option><option>سينمائي وهادئ</option><option>إعلاني وتسويقي</option><option>مطابقة الفيديو المرجعي</option></select></label>
+          </div>
+        </section>
+
+        <button id="start-button" class="primary-button" type="button">جهّز مشروع المونتاج <span>←</span></button>
+        <p class="demo-note">تنبيه: هذه نسخة واجهة تجريبية. رفع الملفات ومعاينتها يعمل محلياً في المتصفح، أما تنفيذ المونتاج والتصدير فيحتاج ربط محرك OpenKatana بخادم معالجة.</p>
+      </div>
+
+      <aside class="side-column">
+        <section class="preview-card">
+          <div class="preview-top"><span>معاينة المشروع</span><span class="live-dot">جاهز للإعداد</span></div>
+          <div class="preview-screen"><div class="play-symbol">▶</div><strong>فيديوك يبدأ من هنا</strong><small>أضف الملفات لعرض تفاصيل مشروعك</small></div>
+          <div class="summary-row"><span>الصوت</span><strong id="summary-audio">غير مضاف</strong></div>
+          <div class="summary-row"><span>الفيديوهات</span><strong id="summary-videos">٠ مقاطع</strong></div>
+          <div class="summary-row"><span>النص</span><strong id="summary-script">غير مضاف</strong></div>
+          <div class="summary-row"><span>المرجع</span><strong id="summary-reference">اختياري</strong></div>
+        </section>
+        <section class="how-card"><h3>كيف يعمل؟</h3><ol><li>نحلل الصوت والنص ونقسمه إلى مشاهد.</li><li>نختار اللقطات المناسبة من فيديوهاتك.</li><li>نضبط القصّات والحركة والانتقالات مع الإيقاع.</li><li>تراجع النتيجة ثم تصدّر الفيديو.</li></ol></section>
+      </aside>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
