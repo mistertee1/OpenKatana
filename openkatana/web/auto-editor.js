@@ -39,7 +39,8 @@ async function run(){
   const planned=await call('plan_edit',{project_id:projectId,asset_ids:clips.map(x=>x.asset.id),recipe:$('recipe').value,seconds,width:w,height:h,fps:30,caption:''});
   const timeline=planned.timeline;
   if(audioAsset?.path){timeline.audio={mode:'mix',limiter:true,tracks:[{src:audioAsset.path,start:0,at:0,volume:1}]};}
-  timeline.metadata={...(timeline.metadata||{}),creative_brief:script,workflow:'arabic-auto-editor-v1',reference_analysis:referenceReport?true:false};
+  await call('write_project_file',{project_id:projectId,path:'brief.md',text:'# Creative brief\\n\\n'+script+'\\n'});
+  if(referenceReport){await call('write_project_file',{project_id:projectId,path:'reference-analysis.json',text:JSON.stringify(referenceReport,null,2)});}
   const saved=await call('save_timeline',{project_id:projectId,timeline,revision:null});
   setStep(3);
   toast('تم حفظ القصّة الأولية. جاري الرندر...');
